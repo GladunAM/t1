@@ -2,6 +2,7 @@ package ru.t1.gladun.service;
 
 
 import org.springframework.stereotype.Service;
+import ru.t1.gladun.exception.WorkingProcessException;
 
 @Service
 public class MainService {
@@ -24,14 +25,14 @@ public class MainService {
 
     @LogExecution
     @LogException
-    public void accidentallyRemoveSomething() {
+    public void accidentallyRemoveSomething() throws WorkingProcessException {
         int number = (int) (Math.random() * 4);
         if(number == 0) {
             System.out.println("This worker removed all DataBases");
-            throw new RuntimeException("This worker removed all DataBases");
+            throw new WorkingProcessException("This worker removed all DataBases");
         } else if(number == 1) {
             System.out.println("This worker removed all Microservices");
-            throw new RuntimeException("This worker removed all Microservices");
+            throw new WorkingProcessException("This worker removed all Microservices");
         } else if(number == 2) {
             System.out.println("This worker has worked and hasn't removed anything.");
         } else {
@@ -44,7 +45,7 @@ public class MainService {
     public void goHome() {
         System.out.println("It's 6pm");
         try{
-         Thread.sleep(5000);
+         Thread.sleep(1000);
         } catch (Exception e){
             e.printStackTrace();
         }

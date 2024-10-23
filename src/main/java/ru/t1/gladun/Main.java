@@ -3,6 +3,7 @@ package ru.t1.gladun;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import ru.t1.gladun.exception.WorkingProcessException;
 import ru.t1.gladun.service.MainService;
 
 @EnableAspectJAutoProxy
@@ -15,7 +16,7 @@ public class Main {
         context.getBean(MainService.class).hardlyWork(-5);
         try {
             context.getBean(MainService.class).accidentallyRemoveSomething();
-        } catch (RuntimeException e) {
+        } catch (WorkingProcessException e) {
             e.printStackTrace();
         }
         context.getBean(MainService.class).goHome();
