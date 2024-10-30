@@ -25,6 +25,10 @@ replay_pid*
 
 
 .idea/
+.gradle/
+gradle/
+gradlew
+*.bat
 
-
+build/
 target/
