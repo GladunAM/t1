@@ -1,6 +1,6 @@
 package ru.t1.gladun.kafkalesson.controller;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.t1.gladun.kafkalesson.config.KafkaConfigProperties;
@@ -11,7 +11,6 @@ import ru.t1.gladun.kafkalesson.service.ClientService;
 import java.util.List;
 
 @RestController
-@ConfigurationProperties(prefix = "kafka")
 public class ClientController {
     private final ClientService clientService;
     private final KafkaClientProducer kafkaClientProducer;
