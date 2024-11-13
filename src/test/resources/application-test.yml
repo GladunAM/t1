@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: TestsApp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testsDB
+    username: test_user
+    password: test_password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8383
